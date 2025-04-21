@@ -1,0 +1,185 @@
+﻿<nav class="pc-sidebar bg-animal-theme">
+    <div class="navbar-wrapper">
+        <div class="m-header py-3 text-center">
+            <a href="../dashboard/index.html" class="b-brand text-light">
+                <img src="~/images/animal-logo.svg" class="img-fluid logo-lg" alt="logo">
+                <h4 class="mt-2 text-brown" style="font-weight: 600; letter-spacing: 1px;">WaggyProject Admin Paneli</h4>
+            </a>
+        </div>
+        <div class="navbar-content">
+            <ul class="pc-navbar">
+                <li class="pc-item">
+                    <a href="/Dashboard/Index" class="pc-link">
+                        <span class="pc-micon"><i class="ti ti-dashboard"></i></span>
+                        <span class="pc-mtext">Dashboard</span>
+                    </a>
+                </li>
+                <li class="pc-item pc-caption">
+                    <label class="text-brown">Menü</label>
+                    <i class="ti ti-layout-grid text-brown"></i>
+                </li>
+                <li class="pc-item">
+                    <a href="/Category/Index" class="pc-link">
+                        <span class="pc-micon">
+                            <i class="bi bi-grid-3x3-gap"></i> 
+                        </span>
+                        <span class="pc-mtext">Kategoriler</span>
+                    </a>
+                </li>
+                <li class="pc-item">
+                    <a href="/Product/Index" class="pc-link">
+                        <span class="pc-micon"><i class="ti ti-basket"></i></span>
+                        <span class="pc-mtext">Ürünler</span>
+                    </a>
+                </li>
+                <li class="pc-item">
+                    <a href="/Testimonial/Index" class="pc-link">
+                        <span class="pc-micon"><i class="ti ti-heart"></i></span>
+                        <span class="pc-mtext">Referanslar</span>
+                    </a>
+                </li>
+                <li class="pc-item">
+                    <a href="/Banner/Index" class="pc-link">
+                        <span class="pc-micon">
+                            <i class="bi bi-file-earmark-image"></i> 
+                        </span>
+                        <span class="pc-mtext">Banner Alanı</span>
+                    </a>
+                </li>
+                <li class="pc-item">
+                    <a href="/Clothes/Index" class="pc-link">
+                        <span class="pc-micon">
+                            <i class="bi-person-bounding-box"></i> 
+                        </span>
+                        <span class="pc-mtext">Kıyafet Bölümü</span>
+                    </a>
+                </li>
+                <li class="pc-item">
+                    <a href="/Gallery/Index" class="pc-link">
+                        <span class="pc-micon">
+                            <i class="bi-images"></i> 
+                        </span>
+                        <span class="pc-mtext">Galleri</span>
+                    </a>
+                </li>
+
+                <li class="pc-item">
+                    <a href="/CatProduct/Index" class="pc-link">
+                        <span class="pc-micon"><i class="ti ti-basket"></i></span>
+                        <span class="pc-mtext">Kedi Ürünleri🐱</span>
+                    </a>
+                    <ul class="pc-submenu" style="display: none;">
+                        <li class="pc-item">
+                            <a href="/Gallery/Clothes" class="pc-link">🧥 Kedi Kıyafetleri</a>
+                        </li>
+                        <li class="pc-item">
+                            <a href="/Gallery/Food" class="pc-link">🍖 Kedi Mamaları</a>
+                        </li>
+                        <li class="pc-item">
+                            <a href="/Gallery/Toys" class="pc-link">🧸 Kedi Oyuncakları</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="pc-item">
+                    <a href="/FishProduct/Index" class="pc-link">
+                        <span class="pc-micon"><i class="ti ti-basket"></i></span>
+                        <span class="pc-mtext">Balık Ürünleri🐟</span>
+                    </a>
+                    <ul class="pc-submenu" style="display: none;">
+                        <li class="pc-item">
+                            <a href="/Gallery/Clothes" class="pc-link">🧥 Kuş Kıyafetleri</a>
+                        </li>
+                        <li class="pc-item">
+                            <a href="/Gallery/Food" class="pc-link">🍖 Kuş Mamaları</a>
+                        </li>
+                        <li class="pc-item">
+                            <a href="/Gallery/Toys" class="pc-link">🧸 Kuş Oyuncakları</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="pc-item">
+                    <a href="/DogProduct/Index" class="pc-link">
+                  <span class="pc-micon"><i class="ti ti-basket"></i></span>
+                        <span class="pc-mtext">Köpek Ürünleri🐕‍🦺</span>
+                    </a>
+                    <ul class="pc-submenu" style="display: none;">
+                        <li class="pc-item">
+                            <a href="/Gallery/Clothes" class="pc-link">🧥 Köpek Kıyafetleri</a>
+                        </li>
+                        <li class="pc-item">
+                            <a href="/Gallery/Food" class="pc-link">🍖 Köpek Mamaları</a>
+                        </li>
+                        <li class="pc-item">
+                            <a href="/Gallery/Toys" class="pc-link">🧸 Köpek Oyuncakları</a>
+                        </li>
+                    </ul>
+                </li>
+
+
+               <li class="pc-item">
+    <a href="/Testimonial/Index" class="pc-link">
+        <span class="pc-micon">
+            <i class="bi bi-chat-left-quote"></i>
+        </span>
+        <span class="pc-mtext">Müşteri Yorumları</span>
+    </a>
+     </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+@* <script>
+    function toggleMenu(event) {
+        event.preventDefault();
+        let submenu = event.target.closest("li").querySelector(".pc-submenu");
+        submenu.style.display = (submenu.style.display === "none" || submenu.style.display === "") ? "block" : "none";
+    }
+
+    // Menü öğelerine tıklanabilir event listener eklemek
+    document.querySelectorAll('.pc-item > a').forEach(function (link) {
+        link.addEventListener('click', toggleMenu);
+    });
+</script> *@
+<style>
+
+    .bg-animal-theme {
+        background: linear-gradient(135deg, #f5f5dc, #d2b48c);
+    }
+
+    .pc-navbar .pc-item a {
+        color: #5c3d2e;
+    }
+
+        .pc-navbar .pc-item a:hover {
+            background-color: #a0522d;
+            color: #fff;
+            border-radius: 10px;
+        }
+
+    .pc-micon i {
+        font-size: 1.5rem;
+    }
+
+    .pc-link {
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+        .pc-link:hover {
+            transform: translateX(5px);
+        }
+
+    .text-brown {
+        color: #8b4513;
+    }
+
+    function toggleMenu(event) {
+        event .preventDefault();
+        // Sayfanın yukarı kaymasını önler let submenu = event.target.closest("li").querySelector(".pc-submenu");
+        submenu .style.display = (submenu.style.display === "none" || submenu.style.display === "") ? "block" : "none";
+    }
+
+</style>

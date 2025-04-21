@@ -1,0 +1,153 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/UILayout/Index.cshtml";
+}
+
+
+
+@await Component.InvokeAsync("DefaultBannerComponent")
+
+@await Component.InvokeAsync("DefaultCategories")
+
+@await Component.InvokeAsync("DefaultClothesComponent")
+
+@await Component.InvokeAsync("DefaultProductComponent")
+
+@await Component.InvokeAsync("DefaultTestimonialComponent")
+@await Component.InvokeAsync("DefaultFeatureComponent")
+
+@await Component.InvokeAsync("DefaultSendMessageComponent")
+
+<section id="service">
+    <div class="container py-5 my-5">
+        <div class="row g-md-5 pt-4">
+            <div class="col-md-3 my-3">
+                <div class="card">
+                    <div>
+                        <iconify-icon class="service-icon text-primary" icon="la:shopping-cart"></iconify-icon>
+                    </div>
+                    <h3 class="card-title py-2 m-0">Ücretsiz Teslimat 📦</h3>
+                    <div class="card-text">
+                        <p class="blog-paragraph fs-6">1000₺ üzeri ve alışverişlerinizde kargo bedava</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 my-3">
+                <div class="card">
+                    <div>
+                        <iconify-icon class="service-icon text-primary" icon="la:user-check"></iconify-icon>
+                    </div>
+                    <h3 class="card-title py-2 m-0">%100 ödeme güvenliği 💳</h3>
+                    <div class="card-text">
+                        <p class="blog-paragraph fs-6">Kolay ve güvenilir bir şekilde ödeme yapabilirsiniz</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 my-3">
+                <div class="card">
+                    <div>
+                        <iconify-icon class="service-icon text-primary" icon="la:tag"></iconify-icon>
+                    </div>
+                    <h3 class="card-title py-2 m-0">Günlük Fırsatlar🏷️</h3>
+                    <div class="card-text">
+                        <p class="blog-paragraph fs-6">Bugüne özel indirimli fırsatları kaçırmayın!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 my-3">
+                <div class="card">
+                    <div>
+                        <iconify-icon class="service-icon text-primary" icon="la:award"></iconify-icon>
+                    </div>
+                    <h3 class="card-title py-2 m-0">Kalite Garantili🛡️</h3>
+                    <div class="card-text">
+                        <p class="blog-paragraph fs-6">Güvenle kullanın, kalite garantisi bizimle!</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+@await Component.InvokeAsync("DefaultGalleryComponent")
+
+<footer id="footer" class="my-5">
+    <div class="container py-5 my-5">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="footer-menu">
+                    <img src="~/waggy-1.0.0/images/logo.png" alt="logo">
+                    <p class="blog-paragraph fs-6 mt-3">Kampanya ve fırsatlardan haberdar olmak için bültenimize abone olun.</p>
+                    <div class="social-links">
+                        <ul class="d-flex list-unstyled gap-2">
+                            <li class="social"><a href="#"><iconify-icon class="social-icon" icon="ri:facebook-fill"></iconify-icon></a></li>
+                            <li class="social"><a href="#"><iconify-icon class="social-icon" icon="ri:twitter-fill"></iconify-icon></a></li>
+                            <li class="social"><a href="#"><iconify-icon class="social-icon" icon="ri:pinterest-fill"></iconify-icon></a></li>
+                            <li class="social"><a href="#"><iconify-icon class="social-icon" icon="ri:instagram-fill"></iconify-icon></a></li>
+                            <li class="social"><a href="#"><iconify-icon class="social-icon" icon="ri:youtube-fill"></iconify-icon></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="footer-menu">
+                    <h3>Hızlı Bağlantılar</h3>
+                    <ul class="menu-list list-unstyled">
+                        <li class="menu-item"><a href="#" class="nav-link">Anasayfa</a></li>
+                        <li class="menu-item"><a href="#" class="nav-link">Hakkımızda</a></li>
+                        <li class="menu-item"><a href="#" class="nav-link">Teklifler</a></li>
+                        <li class="menu-item"><a href="#" class="nav-link">Hizmetler</a></li>
+                        <li class="menu-item"><a href="#" class="nav-link">İletişim</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="footer-menu">
+                    <h3>Yardım Merkezi</h3>
+                    <ul class="menu-list list-unstyled">
+                        <li class="menu-item"><a href="#" class="nav-link">Sıkça Sorulan Sorular</a></li>
+                        <li class="menu-item"><a href="#" class="nav-link">Ödeme</a></li>
+                        <li class="menu-item"><a href="#" class="nav-link">İade ve Geri Ödeme</a></li>
+                        <li class="menu-item"><a href="#" class="nav-link">Ödeme Adımı</a></li>
+                        <li class="menu-item"><a href="#" class="nav-link">Teslimat Bilgileri</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div>
+                    <h3>Bültenimize Abone Olun</h3>
+                    <p class="blog-paragraph fs-6">Özel teklifler ve indirimlerden haberdar olmak için e-posta adresinizi girin.</p>
+                    <div class="search-bar border rounded-pill border-dark-subtle px-2">
+                        <form class="text-center d-flex align-items-center" action="" method="">
+                            <input type="text" class="form-control border-0 bg-transparent" placeholder="E-posta adresinizi girin" />
+                            <iconify-icon class="send-icon" icon="tabler:location-filled"></iconify-icon>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<div id="footer-bottom">
+    <div class="container">
+        <hr class="m-0">
+        <div class="row mt-3">
+            <div class="col-md-6 copyright">
+                <p class="secondary-font">© 2023 Waggy.Tüm hakları saklıdır.</p>
+            </div>
+            <div class="col-md-6 text-md-end">
+                <p class="secondary-font">
+                    Free HTML Template by <a href="https://templatesjungle.com/" target="_blank"
+                                             class="text-decoration-underline fw-bold text-black-50"> TemplatesJungle</a> Distributed by <a href="https://themewagon.com/" target="_blank"
+                                                                                                                                            class="text-decoration-underline fw-bold text-black-50"> ThemeWagon</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+

@@ -1,0 +1,37 @@
+﻿@model List<Banner>
+<section id="banner" style="background: #F9F3EC;">
+    <div class="container">
+        <div class="swiper main-swiper">
+            <div class="swiper-wrapper">
+                @foreach (var item in Model)
+                {
+                    <div class="swiper-slide py-5">
+                        <div class="row banner-content align-items-center">
+                            <div class="img-wrapper col-md-6">
+                                <img src="@item.BannerImageUrl" class="img-fluid banner-img" loading="lazy" alt="@item.Title">
+                            </div>
+                            <div class="content-wrapper col-md-6 p-4">
+                                <div class="secondary-font text-primary text-uppercase fs-6 mb-3">@item.Title</div>
+                                <h3 class="banner-title fw-normal">@item.Description</h3>
+                                <a href="@item.BannerImageUrl" class="btn btn-outline-dark btn-md text-uppercase fs-6 rounded-1">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" class="mb-1">
+                                        <use xlink:href="#arrow-right"></use>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="swiper-pagination mb-4"></div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .banner-img {
+        width: 120%;
+        height: 600px; 
+        object-fit: cover; 
+    }
+</style>

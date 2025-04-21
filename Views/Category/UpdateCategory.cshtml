@@ -1,0 +1,29 @@
+﻿@model Category
+@{
+    ViewData["Title"] = "UpdateCategory";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<form method="post" class="p-4 border rounded bg-light">
+    <input type="hidden" asp-for="CategoryId" />
+
+    <h5 class="mb-4 d-flex align-items-center">
+        <i class="bi bi-pencil-square me-2"></i> Kategori Güncelle
+    </h5>
+
+    <div class="mb-3">
+        <label for="CategoryName" class="form-label">
+            <i class="bi bi-tag"></i> Kategori Adı
+        </label>
+        @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control", placeholder = "Kategori adını girin" })
+    </div>
+
+    <div class="d-flex justify-content-end gap-2">
+        <a href="/Category/Index" class="btn btn-outline-secondary">
+            <i class="bi bi-x-circle"></i> İptal
+        </a>
+        <button type="submit" class="btn btn-primary">
+            <i class="bi bi-check2-circle"></i> Kaydet
+        </button>
+    </div>
+</form>

@@ -1,0 +1,127 @@
+﻿@model ProductModel
+@{
+    ViewData["Title"] = "Ürün Ekle";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-sm">
+        <div class="card-header" style="background-color: #87CEEB; color: white;">
+            <h2 class="mb-0"><i class="bi bi-plus-circle"></i> Ürün Ekle</h2>
+        </div>
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data" class="row g-3">
+
+                <!-- Ürün Adı -->
+                <div class="col-md-6">
+                    <label class="form-label"><i class="bi bi-tag"></i> Ürün Adı</label>
+                    @Html.TextBoxFor(x => x.ProductName, new { @class = "form-control", placeholder = "Ürün adını girin" })
+                </div>
+
+                <!-- Ürün Fiyatı -->
+                <div class="col-md-6">
+                    <label class="form-label"><i class="bi bi-cash"></i> Ürün Fiyatı</label>
+                    @Html.TextBoxFor(x => x.ProductPrice, new { @class = "form-control", placeholder = "Ürün fiyatını girin" })
+                </div>
+
+                <!-- Puan -->
+                <div class="col-md-6">
+                    <label class="form-label"><i class="bi bi-star"></i> Puan</label>
+                    <div class="star-rating">
+                        <input type="radio" id="star5" name="Review" value="5" />
+                        <label for="star5" title="5 stars"><i class="bi bi-star-fill"></i></label>
+
+                        <input type="radio" id="star4" name="Review" value="4" />
+                        <label for="star4" title="4 stars"><i class="bi bi-star-fill"></i></label>
+
+                        <input type="radio" id="star3" name="Review" value="3" />
+                        <label for="star3" title="3 stars"><i class="bi bi-star-fill"></i></label>
+
+                        <input type="radio" id="star2" name="Review" value="2" />
+                        <label for="star2" title="2 stars"><i class="bi bi-star-fill"></i></label>
+
+                        <input type="radio" id="star1" name="Review" value="1" />
+                        <label for="star1" title="1 star"><i class="bi bi-star-fill"></i></label>
+                    </div>
+                </div>
+             @*  Kategori *@
+                <div class="col-md-6">
+                    <label class="form-label"><i class="bi bi-list"></i> Kategori</label>
+                    <select class="form-select" disabled>
+                        <option value="2" selected>Kedi</option>
+                    </select>
+                    <input type="hidden" name="CategoryId" value="2">
+                </div>
+
+                <!-- Ürün Görseli -->
+                <div class="col-12">
+                    <label class="form-label"><i class="bi bi-card-image"></i> Ürün Görseli</label>
+                    <div class="d-flex align-items-center">
+                        <div class="me-3">
+                            <img src="~/img/profile.png" alt="Ürün Görseli" id="profile-picture" class="img-thumbnail" style="max-width: 150px; max-height: 150px;">
+                        </div>
+                        <div class="flex-grow-1">
+                            <input class="form-control" type="file" accept="image/jpeg,image/png,image/jpg" id="input-file" asp-for="ProductImageUrl">
+                            <span id="fileError" class="error-message text-danger" asp-validation-for="ProductImageUrl"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kaydet & İptal Butonları -->
+                <div class="col-12 d-flex justify-content-end">
+                    <button type="submit" class="btn btn-success me-2"><i class="bi bi-check-lg"></i> Kaydet</button>
+                    <a href="/CatProduct/Index" class="btn btn-outline-secondary"><i class="bi bi-x-circle"></i> İptal</a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    const inputFile = document.getElementById('input-file');
+    const profilePicture = document.getElementById('profile-picture');
+
+    inputFile.addEventListener('change', function (event) {
+        const file = event.target.files[0];
+
+        if (file) {
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                profilePicture.src = e.target.result;
+            };
+
+            reader.readAsDataURL(file);
+        }
+    });
+</script>
+
+<!-- ⭐ Yıldız Puanlama Stil -->
+<style>
+    .star-rating {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: start;
+    }
+
+        .star-rating input {
+            display: none;
+        }
+
+        .star-rating label {
+            font-size: 2rem;
+            color: #ccc;
+            cursor: pointer;
+        }
+
+        .star-rating input:checked ~ label {
+            color: #ffc107;
+        }
+
+        .star-rating label:hover,
+        .star-rating label:hover ~ label {
+            color: #ffc107;
+        }
+</style>

@@ -1,0 +1,101 @@
+﻿@model List<Costume>
+
+<section id="clothing" class="my-5 overflow-hidden">
+    <div class="container pb-5">
+        <div class="section-header d-flex flex-column justify-content-start align-items-start mb-3">
+            <h2 class="display-4 fw-bold text-green mb-2">Kostümler👗</h2>
+            <p class="text-start text-muted w-75 fs-5">Evcil dostlarınıza özel şık ve rahat kostümler ile onların da tarzını keşfedin. Şimdi alışveriş yapın!</p>
+        </div>
+
+        <div class="products-carousel swiper">
+            <div class="swiper-wrapper">
+                @foreach (var item in Model)
+                {
+                    <div class="swiper-slide">
+                        <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
+                            Yeni
+                        </div>
+                        <div class="card position-relative">
+                            <a href="single-product.html">
+                                <img src="@item.ImageUrl" class="img-fluid rounded-4" alt="@item.Name">
+                            </a>
+                            <div class="card-body p-0">
+                                <a href="single-product.html">
+                                    <h5 class="card-title pt-4 m-0 text-center">@item.Name</h5>
+                                </a>
+
+                                <div class="card-text text-center">
+                                    <span class="rating secondary-font">
+                                        @if (item.Review >= 4.5)
+                                        {
+                                            <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
+                                            <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
+                                            <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
+                                            <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
+                                            <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
+                                        }
+                                        else if (item.Review >= 3.5)
+                                        {
+                                            <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
+                                            <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
+                                            <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
+                                            <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
+                                            <iconify-icon icon="clarity:star-line" class="text-secondary"></iconify-icon>
+                                        }
+                                        else if (item.Review >= 2.5)
+                                        {
+                                            <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
+                                            <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
+                                            <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
+                                            <iconify-icon icon="clarity:star-line" class="text-secondary"></iconify-icon>
+                                            <iconify-icon icon="clarity:star-line" class="text-secondary"></iconify-icon>
+                                        }
+                                        else if (item.Review >= 1.5)
+                                        {
+                                            <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
+                                            <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
+                                            <iconify-icon icon="clarity:star-line" class="text-secondary"></iconify-icon>
+                                            <iconify-icon icon="clarity:star-line" class="text-secondary"></iconify-icon>
+                                            <iconify-icon icon="clarity:star-line" class="text-secondary"></iconify-icon>
+                                        }
+                                        else if (item.Review >= 0.5)
+                                        {
+                                            <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
+                                            <iconify-icon icon="clarity:star-line" class="text-secondary"></iconify-icon>
+                                            <iconify-icon icon="clarity:star-line" class="text-secondary"></iconify-icon>
+                                            <iconify-icon icon="clarity:star-line" class="text-secondary"></iconify-icon>
+                                            <iconify-icon icon="clarity:star-line" class="text-secondary"></iconify-icon>
+                                        }
+                                        else
+                                        {
+                                            <iconify-icon icon="clarity:star-line" class="text-secondary"></iconify-icon>
+                                            <iconify-icon icon="clarity:star-line" class="text-secondary"></iconify-icon>
+                                            <iconify-icon icon="clarity:star-line" class="text-secondary"></iconify-icon>
+                                            <iconify-icon icon="clarity:star-line" class="text-secondary"></iconify-icon>
+                                            <iconify-icon icon="clarity:star-line" class="text-secondary"></iconify-icon>
+                                        }
+                                        (@item.Review)
+                                    </span>
+
+                                    <h3 class="secondary-font text-primary">@item.Price ₺</h3>
+
+                                    <div class="d-flex flex-wrap justify-content-center mt-3">
+                                        <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
+                                            <h5 class="text-uppercase m-0">Sepete Ekle</h5>
+                                        </a>
+                                        <a href="#" class="btn-wishlist px-4 pt-3">
+                                            <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <!-- / products-carousel -->
+
+    </div>
+</section>

@@ -1,0 +1,60 @@
+﻿@model Gallery
+@{
+    ViewData["Title"] = "EditGallery";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+
+
+<form method="post" enctype="multipart/form-data" class="p-5 border rounded shadow bg-white">
+    <input type="hidden" asp-for="Id" />
+
+    <h4 class="mb-4 d-flex align-items-center text-primary">
+        <i class="bi bi-pencil-square me-2"></i> Galeri Alanını Güncelle
+    </h4>
+
+
+    <div class="col-12">
+        <label class="form-label"><i class="bi bi-card-image"></i>Görsel</label>
+        <div class="d-flex align-items-center">
+            <div class="me-3">
+                @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                {
+                    <img src="@Url.Content(Model.ImageUrl)" alt="Ürün Görseli" id="profile-picture" class="img-thumbnail" style="max-width: 150px; max-height: 150px;">
+                }
+                else
+                {
+                    <img src="~/img/profile.png" alt="Ürün Görseli" id="profile-picture" class="img-thumbnail" style="max-width: 150px; max-height: 150px;">
+                }
+            </div>
+            <div class="flex-grow-1">
+                <input class="form-control" type="file" accept="image/jpeg,image/png,image/jpg" id="input-file" name="ImageFile" onchange="updateImagePreview(this)">
+                <span id="fileError" class="error-message text-danger" asp-validation-for="ImageFile"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-end gap-3">
+        <a href="/Gallery/Index" class="btn btn-outline-danger btn-lg">
+            <i class="bi bi-x-circle"></i> İptal
+        </a>
+        <button type="submit" class="btn btn-primary btn-lg">
+            <i class="bi bi-check2-circle"></i> Kaydet
+        </button>
+    </div>
+</form>
+
+<script>
+    function updateImagePreview(input) {
+        var file = input.files[0];
+        if (file) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                document.getElementById("profile-picture").src = e.target.result;
+            }
+            reader.readAsDataURL(file);
+        }
+    }
+</script>
+
+<!-- Styling improvements: added padding, shadows, and larger form controls for a modern, clean UI -->

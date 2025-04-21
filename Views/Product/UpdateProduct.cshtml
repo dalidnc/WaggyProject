@@ -1,0 +1,177 @@
+﻿@model ProductModel
+@{
+    ViewData["Title"] = "UpdateProduct";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+
+<form method="post" enctype="multipart/form-data" class="p-4 border rounded bg-light">
+    <input type="hidden" asp-for="ProductId" />
+
+    <h5 class="mb-4 d-flex align-items-center">
+        <i class="bi bi-pencil-square me-2"></i> Ürün Güncelle
+    </h5>
+
+    <!-- Ürün Adı -->
+    <div class="mb-3">
+        <label for="ProductName" class="form-label">
+            <i class="bi bi-tag"></i> Ürün Adı
+        </label>
+        @Html.TextBoxFor(x => x.ProductName, new { @class = "form-control", placeholder = "Ürün adını girin" })
+    </div>
+
+    <!-- Review (Yorum) - Yıldızlı Derecelendirme -->
+    <div class="col-md-6">
+        <label class="form-label"><i class="bi bi-star"></i> Puan</label>
+        <div class="star-rating">
+            <!-- Yıldızlar için inputlar -->
+            <input type="radio" id="star5" name="Review" value="5" @(Model.Review == 5 ? "checked" : "") onclick="updateStars(5)" />
+            <label for="star5" title="5 stars"><i class="bi bi-star-fill"></i></label>
+
+            <input type="radio" id="star4" name="Review" value="4" @(Model.Review == 4 ? "checked" : "") onclick="updateStars(4)" />
+            <label for="star4" title="4 stars"><i class="bi bi-star-fill"></i></label>
+
+            <input type="radio" id="star3" name="Review" value="3" @(Model.Review == 3 ? "checked" : "") onclick="updateStars(3)" />
+            <label for="star3" title="3 stars"><i class="bi bi-star-fill"></i></label>
+
+            <input type="radio" id="star2" name="Review" value="2" @(Model.Review == 2 ? "checked" : "") onclick="updateStars(2)" />
+            <label for="star2" title="2 stars"><i class="bi bi-star-fill"></i></label>
+
+            <input type="radio" id="star1" name="Review" value="1" @(Model.Review == 1 ? "checked" : "") onclick="updateStars(1)" />
+            <label for="star1" title="1 star"><i class="bi bi-star-fill"></i></label>
+        </div>
+    </div>
+
+    <!-- Fiyat -->
+    <div class="mb-3">
+        <label for="ProductPrice" class="form-label">
+            <i class="bi bi-cash"></i> Fiyat
+        </label>
+        @Html.TextBoxFor(x => x.ProductPrice, new { @class = "form-control", placeholder = "Fiyatı girin" })
+    </div>
+
+    <!-- Kategori -->
+    <div class="form-group">
+        <label for="CategoryId" class="form-label">Kategori</label>
+        <select asp-for="CategoryId" class="form-select" asp-items="ViewBag.Category">
+            <option value="" selected disabled>Seçiniz...</option>
+        </select>
+    </div>
+
+    <!-- Ürün Görseli -->
+    @* <div class="col-12">
+        <label class="form-label"><i class="bi bi-card-image"></i> Ürün Görseli</label>
+        <div class="d-flex align-items-center">
+            <div class="me-3">
+                @if (!string.IsNullOrEmpty(Model.CurrentImageUrl))
+                {
+                    <img src="@Url.Content(Model.CurrentImageUrl)" alt="Ürün Görseli" id="profile-picture" class="img-thumbnail" style="max-width: 150px; max-height: 150px;">
+                }
+                else
+                {
+                    <img src="~/img/profile.png" alt="Ürün Görseli" id="profile-picture" class="img-thumbnail" style="max-width: 150px; max-height: 150px;">
+                }
+            </div>
+            <div class="flex-grow-1">
+                <input class="form-control" type="file" accept="image/jpeg,image/png,image/jpg" id="input-file" name="ProductImageUrl" onchange="updateImagePreview(this)">
+                <span id="fileError" class="error-message text-danger" asp-validation-for="ProductImageUrl"></span>
+            </div>
+        </div>
+    </div> *@
+
+
+    <!-- Ürün Görseli -->
+    <div class="col-12">
+        <label class="form-label"><i class="bi bi-card-image"></i> Ürün Görseli</label>
+        <div class="d-flex align-items-center">
+            <div class="me-3">
+                @if (!string.IsNullOrEmpty(Model.CurrentImageUrl))
+                {
+                    <img src="@Url.Content(Model.CurrentImageUrl)" alt="Ürün Görseli" id="profile-picture" class="img-thumbnail" style="max-width: 150px; max-height: 150px;">
+                }
+                else
+                {
+                    <img src="~/img/profile.png" alt="Ürün Görseli" id="profile-picture" class="img-thumbnail" style="max-width: 150px; max-height: 150px;">
+                }
+            </div>
+            <div class="flex-grow-1">
+                <input class="form-control" type="file" accept="image/jpeg,image/png,image/jpg" id="input-file" name="ProductImageUrl" onchange="updateImagePreview(this)">
+                <span id="fileError" class="error-message text-danger" asp-validation-for="ProductImageUrl"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Form Kontrolleri -->
+    <div class="d-flex justify-content-end gap-2">
+        <a href="/Product/Index" class="btn btn-outline-secondary">
+            <i class="bi bi-x-circle"></i> İptal
+        </a>
+        <button type="submit" class="btn btn-primary">
+            <i class="bi bi-check2-circle"></i> Kaydet
+        </button>
+    </div>
+</form>
+
+<script>
+    // Yıldızları güncelleme
+    function updateStars(value) {
+        // Tüm yıldızları alıyoruz
+        const stars = document.querySelectorAll('.star-rating input');
+
+        // Yıldızların rengini güncelliyoruz
+        stars.forEach(function (star) {
+            const label = star.nextElementSibling;
+            if (star.value <= value) {
+                label.style.color = "#ffc107";  // Dolu yıldız rengi
+            } else {
+                label.style.color = "#ccc";    // Boş yıldız rengi
+            }
+        });
+
+        // Review input alanını güncelliyoruz
+        document.querySelector("input[name='Review'][value='" + value + "']").checked = true;
+    }
+
+    // Sayfa yüklendiğinde, varsa mevcut review değerini ayarlama
+    window.onload = function () {
+        const currentReview = @Model.Review;
+        updateStars(currentReview);
+    };
+
+    // Görsel önizlemesi
+    function updateImagePreview(input) {
+        var file = input.files[0];
+        if (file) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                // Yeni yüklenen görseli anında göster
+                document.getElementById("profile-picture").src = e.target.result;
+            }
+            reader.readAsDataURL(file);  // Görseli oku
+        }
+    }
+</script>
+
+<!-- ⭐ Yıldız Puanlama Stil -->
+<style>
+    .star-rating {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: start;
+    }
+
+        .star-rating input {
+            display: none;
+        }
+
+        .star-rating label {
+            font-size: 2rem;
+            color: #ccc;
+            cursor: pointer;
+        }
+
+            .star-rating label:hover,
+            .star-rating label:hover ~ label {
+                color: #ffc107;
+            }
+</style>

@@ -1,0 +1,69 @@
+﻿@model List<Gallery>
+
+<section id="insta" class="my-5">
+    <div class="container">
+        <!-- Başlık ve Açıklama -->
+        <div class="text-center mb-4">
+            <h2 class="display-3 fw-normal">Instagram Galerisi</h2>
+            <p class="lead">En yeni paylaşımlarımıza göz atın. Bu galeriyi Instagram hesabımızdan takip edebilirsiniz.</p>
+        </div>
+
+        <!-- Resimler -->
+        <div class="row g-0 py-5 justify-content-center">
+            @foreach (var item in Model)
+            {
+                <div class="col-12 col-md-4 col-lg-3 instagram-item text-center position-relative">
+                    <div class="icon-overlay d-flex justify-content-center position-absolute">
+                        <iconify-icon class="text-white" icon="la:instagram"></iconify-icon>
+                    </div>
+                    <a href="#">
+                        <img src="@item.ImageUrl" alt="insta-img" class="img-fluid rounded-3 insta-image">
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<style>
+    .insta-image {
+        width: 100%;
+        height: 250px; /* Hepsinin aynı yükseklikte olması için sabit yükseklik verildi */
+        object-fit: cover; /* Resimleri kapsayıcıya sığdırır */
+        object-position: center center; /* Resimler merkezde odaklanacak şekilde ayarlandı */
+        border-radius: 10px; /* Yuvarlatılmış köşeler */
+    }
+
+    .instagram-item {
+        position: relative;
+        margin-bottom: 15px;
+    }
+
+    .icon-overlay {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 3rem;
+        z-index: 10;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .instagram-item:hover .icon-overlay {
+        opacity: 1;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .display-3 {
+        font-size: 2.5rem;
+        font-weight: 700;
+    }
+
+    .lead {
+        font-size: 1.125rem;
+        color: #6c757d;
+    }
+</style>
