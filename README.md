@@ -1,4 +1,4 @@
-# Proje Adı: Waggy Project Project 📚
+# Proje Adı: Waggy Project Project 🐾🦴
 Waggy, evcil hayvan sahiplerinin mama, oyuncak, aksesuar gibi ihtiyaçlarını kolayca karşılayabilecekleri kullanıcı dostu bir e-ticaret platformudur. Geliştirilen admin paneli ile ürünler kolaylıkla yönetilirken, kullanıcı tarafında sade ve sezgisel bir arayüz ile alışveriş deneyimi en üst düzeye çıkarılmıştır. Kullanıcılar ürünleri keşfedebilir, favorilerine ekleyebilir ve yorum yapabilirler.<br/>
 
 <br/>
